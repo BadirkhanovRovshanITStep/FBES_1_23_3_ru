@@ -1,34 +1,17 @@
-function Car(model, power) {
-    this.model = model;
-    this.power = power;
+function sum(a, b) {
+    console.log(arguments);
 
-    this.signal = function() {
-        return 'signal';
-    }
+    return a + b;
 }
 
-Car.prototype.beep = function() {
-    return 'beep';
-}
+const sumWithFive = sum.bind(null, 5);
 
-Car.prototype.lights = 2;
-Car.wheelsCount = 4;
+console.log(sumWithFive(8, 3));
 
-function BMW(model, power, fultype) {
-    // Car.call(this, model, power);
-    // Car.apply(this, [model, power]);
-    Car.bind(this, model, power)();
+const sumWithFifty = sum.bind(null, 50);
 
-    this.fultype = fultype;
-}
+console.log(sumWithFifty(8));
 
-Object.setPrototypeOf(BMW, Car);
-Object.setPrototypeOf(BMW.prototype, Car.prototype);
+const oneHundredFifty = sum.bind(null, 50, 100);
 
-const bmw = new BMW('m5', 700, 92);
-
-console.log(bmw);
-console.log(bmw.model);
-console.log(bmw.beep());
-console.log(BMW.wheelsCount);
-console.log(bmw.wheelsCount);
+console.log(oneHundredFifty(1, 2, 3, 4, 5));
