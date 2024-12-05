@@ -1,20 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { List } from './components/List/List';
 
 function App() {
-  const x = 'HELLO';
+  const cards = [
+    {
+      title: 'asdasdas',
+      description: 'tryuiuytfghj'
+    },
+    {
+      title: 'asdasdas 2',
+      description: 'tryuiuytfghj 2'
+    }
+  ];
 
-  return (
-    <>
-      <div className="App">
-
-      </div>
-      <div className="App">
-
-      </div>
-    </>
-  );
+  return <List cards={cards} />;
 }
 
 export default App;
